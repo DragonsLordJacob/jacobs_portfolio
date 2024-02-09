@@ -1,8 +1,6 @@
 /*
   Author: Jacob Hall-Burns
-  Email: jhallburns2021@my.fit.edu
-  Course: Algorithms and Data Structures, CSE2010
-  Section: 2
+  Email: jacob.hallburns02@gmail.com
   Description of this file: Manages three products with with a custom SinglyLinkedLists containing sellers and the price/ quantity information.
                             The information is modified by parsing command phrases from the command line and assigning them to values that are then used in
                             the five (5) main methods. AddSeller, RemoveSeller, IncreaseInventory, CustomerPurchase, and DisplaySellerList.

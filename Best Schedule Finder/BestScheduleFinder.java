@@ -1,8 +1,6 @@
 /*
   Author: Jacob Hall-Burns
-  Email: jhallburns2021@my.fit.edu
-  Course: Algorithms and Data Structures, CSE2010
-  Section: 2
+  Email: jacob.hallburns02@gmail.com
   Description of this file: This program takes in a file from the command line and parses that input into a course name and a list
                             of course times. Then, it recusivly makes each and every possible schedule involving the courses and 
                             times given, checking it against the best schedule. If the current schedule is better than the best
