@@ -1,5 +1,3 @@
-package Gens;
-
 import java.util.Scanner;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -29,8 +27,8 @@ public class Gen1 {
             listOfProfiles.add(profile);
          }
          constructGameLists(listOfProfilesGames, listOfProfiles);
-         findMutualGames(listOfProfilesGames, masterList);
-         printMasterList(listOfProfiles, masterList);
+         //findMutualGames(listOfProfilesGames, masterList);
+         //printMasterList(listOfProfiles, masterList);
       }
       finally {
          txtFileToScan.close();
@@ -39,11 +37,13 @@ public class Gen1 {
    public static void constructGameLists(ArrayList<ProfileInfo> listOfProfilesGames, ArrayList<String> listOfProfiles) throws IOException {
       for (int i = 0; i < listOfProfiles.size(); i++) {
          String profileID = listOfProfiles.get(i);
-         Path steamPath = Paths.get(profileID);
+         String allGames = "/games/?tab=all";
+         String allProfileGames = profileID.concat(allGames);
+         Path steamPath = Paths.get(allProfileGames);
          Scanner readSteamGames = new Scanner(steamPath, "US-ACSII");
          try {
             while (readSteamGames.hasNextLine()) {
-               // Code from here: Need to find the list of games on a steam profile
+               System.out.println(readSteamGames.nextLine());
             }
          }
          finally {
