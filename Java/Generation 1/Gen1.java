@@ -2,7 +2,11 @@ import java.util.Scanner;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.URL;
 
 public class Gen1 {
    public static void main (final String args[]) throws IOException {
@@ -37,17 +41,18 @@ public class Gen1 {
    public static void constructGameLists(ArrayList<ProfileInfo> listOfProfilesGames, ArrayList<String> listOfProfiles) throws IOException {
       for (int i = 0; i < listOfProfiles.size(); i++) {
          String profileID = listOfProfiles.get(i);
-         String allGames = "/games/?tab=all";
-         String allProfileGames = profileID.concat(allGames);
-         Path steamPath = Paths.get(allProfileGames);
-         Scanner readSteamGames = new Scanner(steamPath, "US-ACSII");
+         URL url = new URL("https://steamdb.info/calculator/");
+         BufferedReader steamReader = new BufferedReader(new InputStreamReader(url.openStream()));
+         PrintWriter writting =  new PrintWriter("output.txt");
          try {
-            while (readSteamGames.hasNextLine()) {
-               System.out.println(readSteamGames.nextLine());
+            String inputline;
+            while ((inputline = steamReader.readLine()) != null) {
+               writting.println(inputline);
             }
+            writting.close();
          }
          finally {
-            readSteamGames.close();
+            steamReader.close();
          }
       }
    }
